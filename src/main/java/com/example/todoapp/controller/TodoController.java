@@ -31,6 +31,11 @@ public class TodoController {
                   .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @GetMapping("favicon.ico")
+    @ResponseBody
+    public void returnNoFavicon() {
+    }
+
     @PostMapping
     public ResponseEntity<Todo> createTodo(@Valid @RequestBody Todo todo) {
         Todo savedTodo = todoRepository.save(todo);
